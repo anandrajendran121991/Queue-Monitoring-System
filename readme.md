@@ -1,4 +1,4 @@
-## Laravel Queue System
+## Laravel + Redis + Horizon Queue System
 
 Make sure you download the docker desktop based on your operating system
 
