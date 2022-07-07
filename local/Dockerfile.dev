@@ -1,0 +1,42 @@
+FROM php:8.0-apache
+LABEL Title="Queue System" \
+    Author="Anand Rajendran <imadevaguyanand@gmail.com>" \
+    Description="Queue System" \
+	License="" \
+	Usage="" \
+	Version="1.0"
+
+# Setting Environment variables
+ENV LOG_STDOUT **Boolean**
+ENV LOG_STDERR **Boolean**
+ENV LOG_LEVEL warn
+ENV ALLOW_OVERRIDE All
+ENV DATE_TIMEZONE UTC
+
+RUN apt update \
+        && apt install -y \
+            g++ \
+            libicu-dev \
+            libpq-dev \
+            libzip-dev \
+            zip \
+            zlib1g-dev 
+
+# Install composer 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY docker/run-app.sh docker/setup-app.sh /sbin/
+
+RUN chmod u+x /sbin/setup-app.sh
+RUN /sbin/setup-app.sh
+
+# Exposing certain ports
+EXPOSE 80
+
+# Create Volumes
+VOLUME /var/www/html
+VOLUME /var/www/html/storage /var/log/apache2 /var/lib/php/sessions
+
+RUN chmod +x /sbin/run-app.sh
+# Final command to run
+CMD ["/sbin/run-app.sh"]
