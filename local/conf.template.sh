@@ -11,3 +11,15 @@ export MOUNT_DIR=
 
 # Path to this project root
 export APP_DIR=
+
+# Database
+export DB_NAME=
+export DB_USER=
+export DB_PASS=
+
+# Sendgrid
+export MAIL_FROM_NAME=
+export MAIL_FROM_ADDRESS=
+export MAIL_PASSWORD=
+export MAIL_USERNAME=
+export MAIL_HOST=

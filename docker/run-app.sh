@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Append hosts
+if [[ -f /var/hosts ]]
+then
+    grep -E '172\.16\.' /var/hosts >> /etc/hosts
+
+fi
+
 # Create standard directories which Laravel needs to write the cache, logs, sessions and views data
 mkdir -p /var/www/html/storage/{app,framework/{cache,sessions,testing,views},logs,bootstrap/{cache}}
 
