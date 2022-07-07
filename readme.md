@@ -1,4 +1,4 @@
-## Laravel + Docker Using Apache Base Image
+## Laravel Queue System
 
 Make sure you download the docker desktop based on your operating system
 
@@ -17,7 +17,7 @@ https://docs.docker.com/desktop/windows/install/
 1. Clone this repository
 
    ```
-   git clone https://github.com/imadevguyanand/laravel-docker-boilerplate.git
+   git clone https://github.com/imadevguyanand/queue-system.git
    ```
 
 2. In the local folder make a copy of conf.template.sh called conf.sh.
@@ -38,10 +38,10 @@ https://docs.docker.com/desktop/windows/install/
 
    # Path to this project root,
    export APP_DIR= path to the project on your local machine.
-   Ex: /Users/arajendran/Documents/PROJECTS/laravel-docker-boilerplate
+   Ex: /Users/arajendran/Documents/PROJECTS/queue-system
    ```
 
-4. In a terminal window navigate to the laravel-docker-boilerplate folder and run:
+4. In a terminal window navigate to the queue-system folder and run:
 
    ```
    local/up.sh
@@ -54,8 +54,6 @@ https://docs.docker.com/desktop/windows/install/
    ```
    docker ps
    ```
-
-   ![Deploy!](https://drive.google.com/uc?export=view&id=1ixtu2HjbyrBQC7TjhOXiW1RJeACSwzW3)
 
 6. Once the service has been deployed exec into the container by entering:
 
