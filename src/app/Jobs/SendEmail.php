@@ -15,13 +15,6 @@ class SendEmail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * The maximum number of exceptions to allow before failing.
-     *
-     * @var int
-     */
-    public $maxExceptions = 3;
-
-    /**
      * The number of seconds to wait before retrying the job.
      *
      * @var int
