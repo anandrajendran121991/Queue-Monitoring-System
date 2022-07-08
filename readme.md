@@ -52,6 +52,11 @@ https://docs.docker.com/desktop/windows/install/
    export APP_DIR= path to the project on your local machine.
    Ex: /Users/arajendran/Documents/PROJECTS/queue-system
 
+   # Database
+   export DB_NAME=Name of the database
+   export DB_USER=Database user
+   export DB_PASS=Database password
+
    # Sendgrid configuration
    export MAIL_FROM_NAME=Your Name
    export MAIL_FROM_ADDRESS=Email used to signup for SendGrid
