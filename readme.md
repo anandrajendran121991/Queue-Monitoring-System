@@ -102,4 +102,6 @@ https://docs.docker.com/desktop/windows/install/
     ```
 14. Navigate to http://localhost:{APP_PORT_PREFIX}
 
-15. Fill out the form to see the jobs
+15. Fill out the form to see the jobs. This will create a user record in the user table and sends out an email to the user
+
+    ![Jobs!](https://drive.google.com/uc?export=view&id=1YFhtqOGbX0KxQ6IrsZkkG17TsLTpLt64)
