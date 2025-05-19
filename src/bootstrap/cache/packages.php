@@ -31,6 +31,13 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'mateusjunges/laravel-kafka' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Junges\\Kafka\\Providers\\LaravelKafkaServiceProvider',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 

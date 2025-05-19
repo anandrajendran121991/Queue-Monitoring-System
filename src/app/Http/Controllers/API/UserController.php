@@ -11,6 +11,7 @@ use App\Jobs\CreateUser;
 use Config;
 use Redirect;
 use Session;
+use App\Services\KafkaProducerService;
 
 class UserController extends Controller
 {
@@ -68,5 +69,19 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('horizon.index');
+    }
+
+     /**
+     * Create 
+     *
+     * @param request $request
+     *
+     * @return void
+     */
+    public function sendMessage(Request $request, KafkaProducerService $kafkaService)
+    {
+        $message = 'Hello from Laravel to Kafka!';
+        $kafkaService->produceMessage($message);
+        return 'Message sent to Kafka!';
     }
 }

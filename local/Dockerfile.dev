@@ -2,9 +2,9 @@ FROM php:8.0-apache
 LABEL Title="Queue System" \
     Author="Anand Rajendran <imadevaguyanand@gmail.com>" \
     Description="Queue System" \
-	License="" \
-	Usage="" \
-	Version="1.0"
+    License="" \
+    Usage="" \
+    Version="1.0"
 
 # Setting Environment variables
 ENV LOG_STDOUT **Boolean**
@@ -14,14 +14,15 @@ ENV ALLOW_OVERRIDE All
 ENV DATE_TIMEZONE UTC
 
 RUN apt update \
-        && apt install -y \
-            g++ \
-            libicu-dev \
-            libpq-dev \
-            libzip-dev \
-            zip \
-            redis-server \
-            zlib1g-dev 
+    && apt install -y \
+    g++ \
+    libicu-dev \
+    libpq-dev \
+    libzip-dev \
+    zip \
+    redis-server \
+    zlib1g-dev \
+    librdkafka-dev
 
 # Install composer 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -29,6 +30,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install pcntl pdo pdo_mysql
 
 COPY docker/run-app.sh docker/setup-app.sh /sbin/
+
+RUN pecl install rdkafka-6.0.3 && docker-php-ext-enable rdkafka
+
+# Install Laravel Kafka package v1.8.9
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    composer require mateusjunges/laravel-kafka:^1.8.9
 
 RUN chmod u+x /sbin/setup-app.sh
 RUN /sbin/setup-app.sh

@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['as' => 'user.create', 'uses' => 'API\UserController@create']);
 
 Route::post('/store', ['as' => 'user.store', 'uses' => 'API\UserController@store']);
+
+Route::get('/send-message-to-kafka', ['uses' => 'API\UserController@sendMessage']);

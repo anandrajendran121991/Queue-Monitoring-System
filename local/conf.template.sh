@@ -23,3 +23,6 @@ export MAIL_FROM_ADDRESS=
 export MAIL_PASSWORD=
 export MAIL_USERNAME=
 export MAIL_HOST=
+
+# Kafka
+KAFKA_BROKERS=
